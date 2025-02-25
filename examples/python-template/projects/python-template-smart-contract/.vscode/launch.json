@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Build contracts",
+      "type": "python",
+      "request": "launch",
+      "module": "smart_contracts",
+      "args": ["build"],
+      "cwd": "${workspaceFolder}"
+    },    
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug TEAL via AlgoKit AVM Debugger",
+      "simulateTraceFile": "${workspaceFolder}/${command:PickSimulateTraceFile}",
+      "stopOnEntry": true
+    }
+  ]
+}
