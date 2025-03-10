@@ -63,8 +63,10 @@ def create_example(example):
         template_data["use_workspace"] = use_workspace
         if not template_data.get("project_name"):
             template_data["project_name"] = project_name
+        
+        print(f"template: {template}")
 
-        if use_workspace and is_base_template:
+        if use_workspace:
             workspace_config = read_workspace_config(workspace_file)
             projects_root_path = workspace_config['projects_root_path']
             template['destination'] = base_destination_path / projects_root_path / f"{project_name}-{project_type}"
@@ -77,6 +79,7 @@ def create_example(example):
             if "destination" in template
             else base_destination_path
         )
+        print(f"{template} template_destination: {template_destination}, use_workspace: {use_workspace}, is_base_template: {is_base_template}")
         # Create the parent directory if it doesn't exist
         template_destination.mkdir(parents=True, exist_ok=True)
 

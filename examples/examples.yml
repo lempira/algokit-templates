@@ -66,7 +66,7 @@ examples:
           preset_name: starter
           author_name: ""
           author_email: ""
-          contract_name: mycontract
+          contract_name: mycontract      
       - source: "generators/create-devcontainer"
   
   - id: react-vite
@@ -101,4 +101,7 @@ examples:
           author_name: ""
           author_email: ""
           contract_name: mycontract
+      - source: "templates/example-templates/frontend-utils"
+        data:
+          framework_choice: react
       - source: "generators/create-devcontainer"
