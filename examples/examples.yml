@@ -33,7 +33,7 @@ examples:
           author_email: ""
           contract_name: mycontract
       - source: "generators/create-devcontainer"
-  
+
   - id: typescript-template
     project_name: "Typescript Template"
     type: "smart-contract"
@@ -66,15 +66,15 @@ examples:
           preset_name: starter
           author_name: ""
           author_email: ""
-          contract_name: mycontract      
+          contract_name: mycontract
       - source: "generators/create-devcontainer"
-  
-  - id: react-vite
-    project_name: "React Vite"
+
+  - id: react-vite-basic
+    project_name: "React Vite Basic"
     type: "frontend"
     author: "Algorand Foundation"
-    title: "React Vite"
-    description: "a baseline React web app for developing integrating with any ARC32 compliant Algorand smart contracts."
+    title: "React Vite Basic"
+    description: "A baseline React web app for developing integrating with any ARC32 compliant Algorand smart contracts."
     image: "https://images.unsplash.com/photo-1738788175090-2947ee2de6b0?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     repositoryUrl: "https://github.com/algorandfoundation/algokit-templates/tree/main/examples/react-vite"
     tags:
@@ -101,7 +101,7 @@ examples:
           author_name: ""
           author_email: ""
           contract_name: mycontract
-      - source: "templates/example-templates/frontend-utils"
+      - source: "templates/example-templates/frontend-basic"
         data:
           framework_choice: react
       - source: "generators/create-devcontainer"

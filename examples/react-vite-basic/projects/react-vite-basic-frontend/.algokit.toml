@@ -3,7 +3,7 @@ min_version = "v2.0.0"
 
 [project]
 type = "frontend"
-name = 'react-vite'
+name = 'react-vite-basic'
 artifacts = "src/contracts"
 
 [project.run]
