@@ -1,6 +1,6 @@
 examples:
-  - id: python-template
-    project_name: "Python Template"
+  - id: python-smart-contract
+    project_name: "Python Smart Contract"
     type: "smart-contract"
     author: "Algorand Foundation"
     title: "Python Smart Contract"
@@ -15,9 +15,9 @@ examples:
       - "Feature 2"
       - "Feature 3"
     detailsPages:
-      smartContract: examples/python-template/projects/python-template-smart-contract/smart_contracts/mycontract/contract.py
+      smartContract: examples/python-template/projects/python-template-smart-contract/smart_contracts/hellow/contract.py
     templates:
-      - source: "templates/base-templates/algokit-base-template"
+      - source: "templates/base/workspace-setup"
         data:
           include_readme: true
           include_algokit_toml: true
@@ -25,17 +25,17 @@ examples:
           include_vscode_code_workspace: true
           projects_root_path: projects
           project_name: myproject
-      - source: "templates/base-templates/algokit-python-template"
+      - source: "templates/base/contracts/python"
         data:
           use_workspace: true
           preset_name: starter
           author_name: ""
           author_email: ""
-          contract_name: mycontract
+          contract_name: hellow
       - source: "generators/create-devcontainer"
 
-  - id: typescript-template
-    project_name: "Typescript Template"
+  - id: typescript-smart-contract
+    project_name: "Typescript Smart Contract"
     type: "smart-contract"
     author: "Algorand Foundation"
     title: "Typescript Smart Contract"
@@ -50,9 +50,9 @@ examples:
       - "Feature 2"
       - "Feature 3"
     detailsPages:
-      smartContract: examples/typescript-template/projects/typescript-template-smart-contract/smart_contracts/mycontract/contract.algo.ts
+      smartContract: examples/typescript-template/projects/typescript-template-smart-contract/smart_contracts/hellow/contract.algo.ts
     templates:
-      - source: "templates/base-templates/algokit-base-template"
+      - source: "templates/base/workspace-setup"
         data:
           include_readme: true
           include_algokit_toml: true
@@ -60,13 +60,13 @@ examples:
           include_vscode_code_workspace: true
           projects_root_path: projects
           project_name: myproject
-      - source: "templates/base-templates/algokit-typescript-template"
+      - source: "templates/base/contracts/typescript"
         data:
           use_workspace: true
           preset_name: starter
           author_name: ""
           author_email: ""
-          contract_name: mycontract
+          contract_name: hello_world
       - source: "generators/create-devcontainer"
 
   - id: react-vite-basic
@@ -86,7 +86,7 @@ examples:
       - "Feature 2"
       - "Feature 3"
     templates:
-      - source: "templates/base-templates/algokit-base-template"
+      - source: "templates/base/workspace-setup"
         data:
           include_readme: true
           include_algokit_toml: true
@@ -94,14 +94,89 @@ examples:
           include_vscode_code_workspace: true
           projects_root_path: projects
           project_name: myproject
-      - source: "templates/base-templates/frontend-templates/react-vite"
+      - source: "templates/base/frontend/react-vite"
         data:
           use_workspace: true
           preset_name: starter
           author_name: ""
           author_email: ""
-          contract_name: mycontract
-      - source: "templates/example-templates/frontend-basic"
+      - source: "templates/examples/frontend-basic"
         data:
           framework_choice: react
+      - source: "generators/create-devcontainer"
+
+  - id: python-fullstack
+    project_name: "Python Fullstack"
+    type: "fullstack"
+    author: "Algorand Foundation"
+    title: "Python Fullstack"
+    description: "A fullstack Python web app for developing integrating with any ARC32 compliant Algorand smart contracts."
+    image: "https://images.unsplash.com/photo-1739477021967-e14dc3938e56?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    repositoryUrl: "https://github.com/algorandfoundation/algokit-templates/tree/main/examples/python-fullstack"
+    tags:
+      - python
+      - fullstack
+    features:
+      - "Feature 1"
+      - "Feature 2"
+    templates:
+      - source: "templates/base/workspace-setup"
+        data:
+          include_readme: true
+          include_algokit_toml: true
+          include_github_workflow_template: true
+          include_vscode_code_workspace: true
+          projects_root_path: projects
+          project_name: myproject
+      - source: "templates/base/contracts/python"
+        data:
+          use_workspace: true
+          preset_name: starter
+          author_name: ""
+          author_email: ""
+          contract_name: hello_world
+      - source: "templates/base/frontend/react-vite"
+        data:
+          use_workspace: true
+          preset_name: starter
+          author_name: ""
+          author_email: ""
+      - source: "generators/create-devcontainer"
+
+  - id: typescript-fullstack
+    project_name: "Typescript Fullstack"
+    type: "fullstack"
+    author: "Algorand Foundation"
+    title: "Typescript Fullstack"
+    description: "A fullstack Typescript web app for developing integrating with any ARC32 compliant Algorand smart contracts."
+    image: "https://images.unsplash.com/photo-1739477021967-e14dc3938e56?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    repositoryUrl: "https://github.com/algorandfoundation/algokit-templates/tree/main/examples/typescript-fullstack"
+    tags:
+      - typescript
+      - fullstack
+    features:
+      - "Feature 1"
+      - "Feature 2"
+    templates:
+      - source: "templates/base/workspace-setup"
+        data:
+          include_readme: true
+          include_algokit_toml: true
+          include_github_workflow_template: true
+          include_vscode_code_workspace: true
+          projects_root_path: projects
+          project_name: myproject
+      - source: "templates/base/contracts/typescript"
+        data:
+          use_workspace: true
+          preset_name: starter
+          author_name: ""
+          author_email: ""
+          contract_name: hello_world
+      - source: "templates/base/frontend/react-vite"
+        data:
+          use_workspace: true
+          preset_name: starter
+          author_name: ""
+          author_email: ""
       - source: "generators/create-devcontainer"

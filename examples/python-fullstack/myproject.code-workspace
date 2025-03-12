@@ -5,7 +5,10 @@
       "name": "ROOT"
     },
     {
-      "path": "projects/react-vite-basic-frontend"
+      "path": "projects/python-fullstack-contracts"
+    },
+    {
+      "path": "projects/python-fullstack-frontend"
     }
   ],
   "settings": {

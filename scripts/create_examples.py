@@ -4,16 +4,41 @@ import yaml
 from pathlib import Path
 from copier import run_copy
 import json
+from typing import Dict, Optional, Any
 from update_workspace import update_workspace
 
+BACKEND_TEMPLATES_NAME = "contracts"
+FRONTEND_TEMPLATES_NAME = "frontend"
 
-def load_examples_config():
+
+def load_examples_config() -> Dict[str, Any]:
     file_path = Path(__file__).parent.parent / "examples" / "examples.yml"
     with open(file_path, "r") as f:
         return yaml.safe_load(f)
+    
+
+def get_template_type(path: Path) -> Optional[str]:
+    """
+    Determine the template type based on the path.
+    
+    Args:
+        path (Path): Path to the template
+        
+    Returns:
+        str: Template type ('workspace', 'contracts', 'frontend', 'example')
+    """
+    template_type = "example"
+    path_str = str(path)
+    if path_str.startswith('templates/base/workspace'):
+        template_type = 'workspace'
+    elif path_str.startswith(f'templates/base/{BACKEND_TEMPLATES_NAME}'):
+        template_type = BACKEND_TEMPLATES_NAME
+    elif path_str.startswith(f'templates/base/{FRONTEND_TEMPLATES_NAME}'):
+        template_type = FRONTEND_TEMPLATES_NAME
+    return template_type
 
 
-def read_workspace_config(workspace_file):
+def read_workspace_config(workspace_file: Path) -> Dict[str, Optional[str]]:
     """
     Read the workspace file and extract configuration values.
     
@@ -39,9 +64,8 @@ def read_workspace_config(workspace_file):
     return config
 
 
-def create_example(example):
+def create_example(example: Dict[str, Any]) -> None:
     project_name = example["project_name"].lower().replace(" ", "-")
-    project_type = example["type"]
     # Create destination path based on example id
     base_destination_path = Path("examples") / example["id"]
 
@@ -52,9 +76,8 @@ def create_example(example):
     
     # Apply each template in sequence
     for template in example["templates"]:
-        source = Path(template["source"]).absolute()
-        is_base_template = 'base-templates' in source.parts
-
+        source = Path(template["source"])
+        template_type = get_template_type(source)
         workspace_file = next(base_destination_path.glob("*.code-workspace"), None)
         use_workspace = bool(workspace_file)
         
@@ -66,11 +89,12 @@ def create_example(example):
         
         print(f"template: {template}")
 
-        if use_workspace:
+        if use_workspace and template_type in [BACKEND_TEMPLATES_NAME, FRONTEND_TEMPLATES_NAME]:
             workspace_config = read_workspace_config(workspace_file)
             projects_root_path = workspace_config['projects_root_path']
-            template['destination'] = base_destination_path / projects_root_path / f"{project_name}-{project_type}"
-            projects_path = os.path.join(projects_root_path, f"{project_name}-{project_type}")
+            project_dir_name = f"{project_name}-{template_type}"
+            template['destination'] = base_destination_path / projects_root_path / project_dir_name
+            projects_path = os.path.join(projects_root_path, project_dir_name)
             # Update workspace file with the new project folder
             update_workspace(str(workspace_file), str(projects_path))
         
@@ -79,13 +103,13 @@ def create_example(example):
             if "destination" in template
             else base_destination_path
         )
-        print(f"{template} template_destination: {template_destination}, use_workspace: {use_workspace}, is_base_template: {is_base_template}")
+        # print(f"{template} template_destination: {template_destination}, use_workspace: {use_workspace}, is_base_template: {is_base_template}")
         # Create the parent directory if it doesn't exist
         template_destination.mkdir(parents=True, exist_ok=True)
 
         # Copy the template
         run_copy(
-            src_path=str(source),
+            src_path=str(source.absolute()),
             dst_path=str(template_destination.absolute()),
             data=template_data,
             unsafe=True,
@@ -94,7 +118,7 @@ def create_example(example):
         )
 
 
-def main(example_id=None):
+def main(example_id: Optional[str] = None) -> None:
     """
     Create examples from templates. If example_id is provided, only that example will be created.
     
