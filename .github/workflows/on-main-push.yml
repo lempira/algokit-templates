@@ -6,6 +6,7 @@ on:
       - main
   workflow_dispatch:
 
+# Permissions needed to deploy to GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -17,8 +18,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # You can add other jobs here that should run on main push
-
   publish-demo-sites:
     runs-on: ubuntu-latest
     steps:
