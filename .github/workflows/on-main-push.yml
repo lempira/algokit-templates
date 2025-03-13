@@ -25,5 +25,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Publish Demo Sites
-        uses: ./.github/actions/publish-demo-sites
+      - name: Build Demo Sites
+        uses: ./.github/actions/build-demo-sites
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ github.token }}

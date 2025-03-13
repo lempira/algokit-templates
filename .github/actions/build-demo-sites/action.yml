@@ -1,5 +1,5 @@
-name: "Publish Demo Sites"
-description: "Builds and publishes frontend demo sites to GitHub Pages"
+name: "Build Demo Sites"
+description: "Builds frontend demo sites"
 
 runs:
   using: "composite"
@@ -81,8 +81,3 @@ runs:
       uses: actions/upload-pages-artifact@v3
       with:
         path: dist
-
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
-      with:
-        token: ${{ github.token }}
