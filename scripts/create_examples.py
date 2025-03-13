@@ -64,7 +64,7 @@ def read_workspace_config(workspace_file: Path) -> Dict[str, Optional[str]]:
     return config
 
 
-def create_example(example: Dict[str, Any]) -> None:
+def create_example(example: Dict[str, Any], bootstrap: bool = False) -> None:
     project_name = example["project_name"].lower().replace(" ", "-")
     # Create destination path based on example id
     base_destination_path = Path("examples") / example["id"]
@@ -103,7 +103,6 @@ def create_example(example: Dict[str, Any]) -> None:
             if "destination" in template
             else base_destination_path
         )
-        # print(f"{template} template_destination: {template_destination}, use_workspace: {use_workspace}, is_base_template: {is_base_template}")
         # Create the parent directory if it doesn't exist
         template_destination.mkdir(parents=True, exist_ok=True)
 
@@ -116,14 +115,21 @@ def create_example(example: Dict[str, Any]) -> None:
             quiet=False,
             overwrite=True,
         )
+    
+    # Run bootstrap if flag is set
+    if bootstrap:
+        import subprocess
+        print(f"Bootstrapping example: {example['id']}")
+        subprocess.run(["algokit", "project", "bootstrap", "all"], cwd=base_destination_path, check=True)
 
 
-def main(example_id: Optional[str] = None) -> None:
+def main(example_id: Optional[str] = None, bootstrap: bool = False) -> None:
     """
     Create examples from templates. If example_id is provided, only that example will be created.
     
     Args:
         example_id (str, optional): Specific example ID to process. If None, all examples will be processed.
+        bootstrap (bool, optional): Whether to run 'algokit project bootstrap all' after creating the example. Defaults to False.
     """
     config = load_examples_config()
 
@@ -134,13 +140,13 @@ def main(example_id: Optional[str] = None) -> None:
             print(f"No example found with ID: {example_id}")
             return
         print(f"\nProcessing example: {example['id']}")
-        create_example(example)
+        create_example(example, bootstrap)
         print(f"Completed: {example['id']}")
     else:
         # Process all examples
         for example in config["examples"]:
             print(f"\nProcessing example: {example['id']}")
-            create_example(example)
+            create_example(example, bootstrap)
             print(f"Completed: {example['id']}")
 
 
