@@ -38,9 +38,6 @@ coverage.xml
 *.swo
 .DS_Store
 
-# Environment variables
-.env
-.env.local
 
 # Project specific
 *.log
