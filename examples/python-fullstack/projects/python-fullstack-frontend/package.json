@@ -2,8 +2,8 @@
   "name": "python-fullstack",
   "version": "0.1.0",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Your Name",
+    "email": "your@email.tld"
   },
   "private": true,
   "type": "module",

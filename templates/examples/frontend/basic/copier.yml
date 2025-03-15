@@ -11,7 +11,8 @@ framework_choice:
 
 _tasks:
   - name: Merge package json dependencies
-    command: python {{ _copier_conf.src_path }}/../../../scripts/merge_package_json.py --source "{{ _copier_conf.src_path }}/{% if framework_choice == 'astro' %}astro_template_content{% else %}react-template-content{% endif %}" --destination "{{ _copier_conf.dst_path }}"
+    command: |
+      python {{ _repo_root }}/scripts/merge_package_json.py --source "{{ _copier_conf.src_path }}/{% if framework_choice == 'astro' %}astro_template_content{% else %}react-template-content{% endif %}" --destination "{{ _copier_conf.dst_path }}"
 
 # Additional configuration
 _message_after_copy: |

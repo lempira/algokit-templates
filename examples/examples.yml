@@ -33,6 +33,7 @@ examples:
           author_email: ""
           contract_name: hellow
       - source: "generators/create-devcontainer"
+      - source: "generators/create-env-file"
 
   - id: typescript-smart-contract
     project_name: "Typescript Smart Contract"
@@ -68,6 +69,7 @@ examples:
           author_email: ""
           contract_name: hello_world
       - source: "generators/create-devcontainer"
+      - source: "generators/create-env-file"
 
   - id: react-vite-basic
     project_name: "React Vite Basic"
@@ -100,10 +102,13 @@ examples:
           preset_name: starter
           author_name: ""
           author_email: ""
-      - source: "templates/examples/frontend-basic"
+      - source: "templates/examples/frontend/basic"
         data:
           framework_choice: react
       - source: "generators/create-devcontainer"
+      - source: "generators/create-env-file"
+        data:
+          target_network: testnet
 
   - id: python-fullstack
     project_name: "Python Fullstack"
@@ -139,9 +144,10 @@ examples:
         data:
           use_workspace: true
           preset_name: starter
-          author_name: ""
-          author_email: ""
+          author_name: "Your Name"
+          author_email: "your@email.tld"
       - source: "generators/create-devcontainer"
+      - source: "generators/create-env-file"
 
   - id: typescript-fullstack
     project_name: "Typescript Fullstack"
@@ -180,3 +186,4 @@ examples:
           author_name: ""
           author_email: ""
       - source: "generators/create-devcontainer"
+      - source: "generators/create-env-file"
