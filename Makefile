@@ -11,8 +11,8 @@ clean-examples: ## Remove example directories. Optional: use 'id=<example-id>' t
 		find examples/ -mindepth 1 -type d -exec rm -rf {} + && echo "Removed all examples")
 
 create-examples: ## Create example projects. Optional: use 'id=<example-id>' to create specific example, 'bootstrap=true' to bootstrap projects
-	python ./scripts/create_examples.py create $(if $(id),--example_id=$(id),) $(if $(bootstrap),--bootstrap=$(bootstrap),)
+	python ./scripts/create_examples.py $(if $(id),--example_id=$(id),) $(if $(bootstrap),--bootstrap=$(bootstrap),)
 
 bootstrap-examples: ## Bootstrap existing example projects. Optional: use 'id=<example-id>' to bootstrap specific example
-	python ./scripts/create_examples.py bootstrap $(if $(id),--example_id=$(id),)
+	python ./scripts/bootstrap_examples.py $(if $(id),--example_id=$(id),)
 

@@ -1,12 +1,12 @@
 import os
 import fire
-import subprocess
 import yaml
 from pathlib import Path
 from copier import run_copy
 import json
 from typing import Dict, Optional, Any
 from update_workspace import update_workspace
+from bootstrap_examples import bootstrap_example
 
 BACKEND_TEMPLATES_NAME = "contracts"
 FRONTEND_TEMPLATES_NAME = "frontend"
@@ -208,51 +208,6 @@ def run_copier_on_template(template: Dict[str, Any]) -> None:
     )
 
 
-def bootstrap_example(example_path: Path) -> None:
-    """
-    Run 'algokit project bootstrap all' in the specified example directory.
-
-    Args:
-        example_path (Path): Path to the example directory
-    """
-
-    print(f"Bootstrapping example at: {example_path}")
-    try:
-        subprocess.run(
-            ["algokit", "project", "bootstrap", "all"],
-            cwd=example_path,
-            check=True,
-        )
-        print(f"Bootstrap completed successfully for: {example_path}")
-    except subprocess.CalledProcessError as e:
-        print(f"Bootstrap failed for {example_path}: {e}")
-
-
-def bootstrap_examples(example_id: Optional[str] = None) -> None:
-    """
-    Bootstrap existing examples without recreating them.
-
-    Args:
-        example_id (str, optional): Specific example ID to bootstrap. If None, all examples will be bootstrapped.
-    """
-    config = load_examples_config()
-    examples_dir = Path("examples")
-
-    if example_id:
-        # Bootstrap specific example
-        example_path = examples_dir / example_id
-        if example_path.exists() and example_path.is_dir():
-            bootstrap_example(example_path)
-        else:
-            print(f"Example directory not found: {example_path}")
-    else:
-        # Bootstrap all examples
-        for example in config["examples"]:
-            example_path = examples_dir / example["id"]
-            if example_path.exists() and example_path.is_dir():
-                bootstrap_example(example_path)
-
-
 def create_example(example: Dict[str, Any], bootstrap: bool = False) -> None:
     project_name = example["project_name"].lower().replace(" ", "-")
     # Create destination path based on example id
@@ -345,28 +300,5 @@ def main(example_id: Optional[str] = None, bootstrap: bool = False) -> None:
             print(f"Completed: {example['id']}")
 
 
-class Commands:
-    """Commands for managing examples."""
-
-    def create(self, example_id: Optional[str] = None, bootstrap: bool = False) -> None:
-        """
-        Create examples from templates.
-
-        Args:
-            example_id (str, optional): Specific example ID to process. If None, all examples will be processed.
-            bootstrap (bool, optional): Whether to run 'algokit project bootstrap all' after creating the example. Defaults to False.
-        """
-        main(example_id, bootstrap)
-
-    def bootstrap(self, example_id: Optional[str] = None) -> None:
-        """
-        Bootstrap existing examples without recreating them.
-
-        Args:
-            example_id (str, optional): Specific example ID to bootstrap. If None, all examples will be bootstrapped.
-        """
-        bootstrap_examples(example_id)
-
-
 if __name__ == "__main__":
-    fire.Fire(Commands)
+    fire.Fire(main)
