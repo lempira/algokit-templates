@@ -15,7 +15,7 @@ examples:
       - "Feature 2"
       - "Feature 3"
     detailsPages:
-      smartContract: examples/python-template/projects/python-template-smart-contract/smart_contracts/hellow/contract.py
+      smartContract: examples/python-smart-contract/projects/python-smart-contract-contracts/smart_contracts/hello_world/contract.py
     templates:
       - source: "templates/base/workspace-setup"
         data:
@@ -31,7 +31,7 @@ examples:
           preset_name: starter
           author_name: ""
           author_email: ""
-          contract_name: hellow
+          contract_name: hello_world
       - source: "generators/create-devcontainer"
       - source: "generators/create-env-file"
 
@@ -51,7 +51,7 @@ examples:
       - "Feature 2"
       - "Feature 3"
     detailsPages:
-      smartContract: examples/typescript-template/projects/typescript-template-smart-contract/smart_contracts/hellow/contract.algo.ts
+      smartContract: examples/typescript-smart-contract/projects/typescript-smart-contract-contracts/smart_contracts/hello_world/contract.algo.ts
     templates:
       - source: "templates/base/workspace-setup"
         data:

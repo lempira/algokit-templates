@@ -16,3 +16,5 @@ create-examples: ## Create example projects. Optional: use 'id=<example-id>' to 
 bootstrap-examples: ## Bootstrap existing example projects. Optional: use 'id=<example-id>' to bootstrap specific example
 	python ./scripts/bootstrap_examples.py $(if $(id),--example_id=$(id),)
 
+generate-new-examples: clean-examples create-examples bootstrap-examples ## Generate new examples by cleaning, creating, and bootstrapping in sequence
+
