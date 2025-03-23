@@ -18,20 +18,7 @@ examples:
       smartContract: examples/python-smart-contract/projects/python-smart-contract-contracts/smart_contracts/hello_world/contract.py
     templates:
       - source: "templates/base/workspace-setup"
-        data:
-          include_readme: true
-          include_algokit_toml: true
-          include_github_workflow_template: true
-          include_vscode_code_workspace: true
-          projects_root_path: projects
-          project_name: myproject
       - source: "templates/base/contracts/python"
-        data:
-          use_workspace: true
-          preset_name: starter
-          author_name: ""
-          author_email: ""
-          contract_name: hello_world
       - source: "generators/create-devcontainer"
       - source: "generators/create-env-file"
 
@@ -54,20 +41,7 @@ examples:
       smartContract: examples/typescript-smart-contract/projects/typescript-smart-contract-contracts/smart_contracts/hello_world/contract.algo.ts
     templates:
       - source: "templates/base/workspace-setup"
-        data:
-          include_readme: true
-          include_algokit_toml: true
-          include_github_workflow_template: true
-          include_vscode_code_workspace: true
-          projects_root_path: projects
-          project_name: myproject
       - source: "templates/base/contracts/typescript"
-        data:
-          use_workspace: true
-          preset_name: starter
-          author_name: ""
-          author_email: ""
-          contract_name: hello_world
       - source: "generators/create-devcontainer"
       - source: "generators/create-env-file"
 
@@ -89,19 +63,7 @@ examples:
       - "Feature 3"
     templates:
       - source: "templates/base/workspace-setup"
-        data:
-          include_readme: true
-          include_algokit_toml: true
-          include_github_workflow_template: true
-          include_vscode_code_workspace: true
-          projects_root_path: projects
-          project_name: myproject
       - source: "templates/base/frontend/react-vite"
-        data:
-          use_workspace: true
-          preset_name: starter
-          author_name: ""
-          author_email: ""
       - source: "templates/examples/frontend/basic"
         data:
           framework_choice: react
@@ -126,26 +88,8 @@ examples:
       - "Feature 2"
     templates:
       - source: "templates/base/workspace-setup"
-        data:
-          include_readme: true
-          include_algokit_toml: true
-          include_github_workflow_template: true
-          include_vscode_code_workspace: true
-          projects_root_path: projects
-          project_name: myproject
       - source: "templates/base/contracts/python"
-        data:
-          use_workspace: true
-          preset_name: starter
-          author_name: ""
-          author_email: ""
-          contract_name: hello_world
       - source: "templates/base/frontend/react-vite"
-        data:
-          use_workspace: true
-          preset_name: starter
-          author_name: "Your Name"
-          author_email: "your@email.tld"
       - source: "generators/create-devcontainer"
       - source: "generators/create-env-file"
 
@@ -165,25 +109,7 @@ examples:
       - "Feature 2"
     templates:
       - source: "templates/base/workspace-setup"
-        data:
-          include_readme: true
-          include_algokit_toml: true
-          include_github_workflow_template: true
-          include_vscode_code_workspace: true
-          projects_root_path: projects
-          project_name: myproject
       - source: "templates/base/contracts/typescript"
-        data:
-          use_workspace: true
-          preset_name: starter
-          author_name: ""
-          author_email: ""
-          contract_name: hello_world
       - source: "templates/base/frontend/react-vite"
-        data:
-          use_workspace: true
-          preset_name: starter
-          author_name: ""
-          author_email: ""
       - source: "generators/create-devcontainer"
       - source: "generators/create-env-file"

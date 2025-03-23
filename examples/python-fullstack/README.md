@@ -1,4 +1,4 @@
-# myproject
+# python-fullstack
 
 Welcome to your new AlgoKit project!
 

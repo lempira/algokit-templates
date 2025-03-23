@@ -1,4 +1,4 @@
-# myproject
+# react-vite-basic
 
 Welcome to your new AlgoKit project!
 

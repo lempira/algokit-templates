@@ -1,5 +1,5 @@
 _subdirectory: template_content
-_templates_suffix: '.jinja'
+_templates_suffix: ".jinja"
 
 use_workspace:
   type: bool
@@ -11,27 +11,29 @@ use_workspace:
 project_name:
   type: str
   help: Name for this project.
-  placeholder: 'algorand-app'
+  placeholder: "algorand-app"
 
 author_name:
   type: str
   help: Package author name
-  placeholder: 'Your Name'
+  placeholder: "Your Name"
+  default: "Your Name"
 
 author_email:
   type: str
   help: Package author email
-  placeholder: 'your@email.tld'
+  placeholder: "your@email.tld"
+  default: "your@email.tld"
 
 # Preset related questions
 preset_name:
   type: str
   help: Name of the template preset to use.
   choices:
-    'Starter - for a simpler starting point ideal for prototyping': 'starter'
-    'Production - for confidently deploying to MainNet and/or more complex projects': 'production'
-    'Custom - for tailoring the template output to your needs': 'custom'
-  default: 'starter'
+    "Starter - for a simpler starting point ideal for prototyping": "starter"
+    "Production - for confidently deploying to MainNet and/or more complex projects": "production"
+    "Custom - for tailoring the template output to your needs": "custom"
+  default: "starter"
 
 ide_vscode:
   type: bool
@@ -84,9 +86,9 @@ use_github_actions:
 cloud_provider:
   type: str
   help: Pick your website hosting provider for continuous delivery
-  when: '{{ use_github_actions != false }}'
+  when: "{{ use_github_actions != false }}"
   choices:
-    Netlify: 'netlify'
-    Vercel: 'vercel'
-    Skip CD setup: 'none'
+    Netlify: "netlify"
+    Vercel: "vercel"
+    Skip CD setup: "none"
   default: "{{ 'netlify' if preset_name == 'production' else 'none' }}"

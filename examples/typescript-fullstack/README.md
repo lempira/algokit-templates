@@ -1,4 +1,4 @@
-# myproject
+# typescript-fullstack
 
 Welcome to your new AlgoKit project!
 
