@@ -15,7 +15,7 @@ examples:
       - "Feature 2"
       - "Feature 3"
     detailsPages:
-      smartContract: examples/python-smart-contract/projects/python-smart-contract-contracts/smart_contracts/hello_world/contract.py
+      smartContract: examples/python-smart-contract/projects/python-hello-world-contracts/smart_contracts/hello_world/contract.py
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/contracts/python"
@@ -38,7 +38,7 @@ examples:
       - "Feature 2"
       - "Feature 3"
     detailsPages:
-      smartContract: examples/typescript-smart-contract/projects/typescript-smart-contract-contracts/smart_contracts/hello_world/contract.algo.ts
+      smartContract: examples/typescript-smart-contract/projects/typescript-hello-world-contracts/smart_contracts/hello_world/contract.algo.ts
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/contracts/typescript"

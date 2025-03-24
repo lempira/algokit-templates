@@ -18,3 +18,5 @@ bootstrap-examples: ## Bootstrap existing example projects. Optional: use 'id=<e
 
 generate-new-examples: clean-examples create-examples bootstrap-examples ## Generate new examples by cleaning, creating, and bootstrapping in sequence
 
+validate-example-configuration:
+	python ./scripts/validate_configuration.py
