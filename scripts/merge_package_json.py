@@ -5,17 +5,18 @@ from typing import Dict
 
 def merge_json_dependencies(source: Dict, destination: Dict, overwrite_existing_only: bool = False) -> Dict:
     """
-    Merge dependencies from source into destination package.json,
+    Merge dependencies and scripts from source into destination package.json,
     preserving all destination fields and structure.
-    Source dependencies take precedence over destination dependencies.
+    Source entries take precedence over destination entries.
 
     Args:
-        source: Source dependency dictionary
-        destination: Destination dependency dictionary
-        overwrite_existing_only: If True, only overwrite dependencies that already exist in destination
+        source: Source dictionary
+        destination: Destination dictionary
+        overwrite_existing_only: If True, only overwrite entries that already exist in destination
     """
     result = destination.copy()
     
+    # Merge dependencies and devDependencies
     for dep_type in ['dependencies', 'devDependencies']:
         if dep_type in source and dep_type in result:
             source_deps = source[dep_type]
@@ -25,6 +26,15 @@ def merge_json_dependencies(source: Dict, destination: Dict, overwrite_existing_
         elif dep_type in source and not overwrite_existing_only:
             # Only add new dep_type if overwrite_existing_only is False
             result[dep_type] = source[dep_type].copy()
+    
+    # Merge scripts
+    if 'scripts' in source:
+        if 'scripts' not in result:
+            result['scripts'] = {}
+        source_scripts = source['scripts']
+        for script_name, script_command in source_scripts.items():
+            if not overwrite_existing_only or script_name in result['scripts']:
+                result['scripts'][script_name] = script_command
     
     return result
 
