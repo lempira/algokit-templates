@@ -1,4 +1,4 @@
-# typescript-smart-contract
+# typescript-hello-world
 
 Welcome to your new AlgoKit project!
 
