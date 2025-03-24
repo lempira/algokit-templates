@@ -6,7 +6,6 @@ examples:
     title: "Python Hello World"
     description: "Python template"
     image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    repositoryUrl: "https://github.com/algorandfoundation/algokit-templates/tree/main/examples/python-template"
     tags:
       - python
       - smart-contract
@@ -29,7 +28,6 @@ examples:
     title: "Typescript Hello World"
     description: "This template provides a beta template for developing and deploying Algorand TypeScript smart contracts."
     image: "https://images.unsplash.com/photo-1739477021967-e14dc3938e56?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    repositoryUrl: "https://github.com/algorandfoundation/algokit-templates/tree/main/examples/typescript-template"
     tags:
       - typescript
       - smart-contract
@@ -52,7 +50,6 @@ examples:
     title: "React Vite Basic"
     description: "A baseline React web app for developing integrating with any ARC32 compliant Algorand smart contracts."
     image: "https://images.unsplash.com/photo-1738788175090-2947ee2de6b0?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    repositoryUrl: "https://github.com/algorandfoundation/algokit-templates/tree/main/examples/react-vite"
     tags:
       - react
       - vite
@@ -79,7 +76,6 @@ examples:
     title: "Python Hello World"
     description: "A fullstack Python web app for developing integrating with any ARC32 compliant Algorand smart contracts."
     image: "https://images.unsplash.com/photo-1739477021967-e14dc3938e56?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    repositoryUrl: "https://github.com/algorandfoundation/algokit-templates/tree/main/examples/python-fullstack"
     tags:
       - python
       - fullstack
@@ -100,7 +96,6 @@ examples:
     title: "Typescript Hello World"
     description: "A fullstack Typescript web app for developing integrating with any ARC32 compliant Algorand smart contracts."
     image: "https://images.unsplash.com/photo-1739477021967-e14dc3938e56?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    repositoryUrl: "https://github.com/algorandfoundation/algokit-templates/tree/main/examples/typescript-fullstack"
     tags:
       - typescript
       - fullstack
