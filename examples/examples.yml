@@ -61,9 +61,6 @@ examples:
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/frontend/react-vite"
-      - source: "templates/examples/frontend/basic"
-        data:
-          framework_choice: react
       - source: "generators/create-devcontainer"
       - source: "generators/create-env-file"
         data:
