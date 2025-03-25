@@ -10,9 +10,9 @@ examples:
       - python
       - smart-contract
     features:
-      - "Feature 1"
-      - "Feature 2"
-      - "Feature 3"
+      - "String Handling"
+      - "ARC 4 Contract"
+      - "ABI Method Integration"
     detailsPages:
       smartContract: examples/python-smart-contract/projects/python-hello-world-contracts/smart_contracts/hello_world/contract.py
     templates:
@@ -32,9 +32,9 @@ examples:
       - typescript
       - smart-contract
     features:
-      - "Feature 1"
-      - "Feature 2"
-      - "Feature 3"
+      - "String Handling"
+      - "ARC 4 Contract"
+      - "ABI Method Integration"
     detailsPages:
       smartContract: examples/typescript-smart-contract/projects/typescript-hello-world-contracts/smart_contracts/hello_world/contract.algo.ts
     templates:
@@ -54,10 +54,11 @@ examples:
       - react
       - vite
       - frontend
+      - typescript
     features:
-      - "Feature 1"
-      - "Feature 2"
-      - "Feature 3"
+      - "Use Wallet Integration"
+      - "Testnet Deployment"
+      - "Transactions Sending"
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/frontend/react-vite"
@@ -75,10 +76,14 @@ examples:
     image: "https://images.unsplash.com/photo-1739477021967-e14dc3938e56?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     tags:
       - python
+      - typescript
       - fullstack
     features:
-      - "Feature 1"
-      - "Feature 2"
+      - "String Handling"
+      - "ARC 4 Contract"
+      - "ABI Method Integration"
+      - "Use Wallet Integration"
+      - "Contract Interaction"
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/contracts/python"
@@ -97,8 +102,11 @@ examples:
       - typescript
       - fullstack
     features:
-      - "Feature 1"
-      - "Feature 2"
+      - "String Handling"
+      - "ARC 4 Contract"
+      - "ABI Method Integration"
+      - "Use Wallet Integration"
+      - "Contract Interaction"
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/contracts/typescript"
