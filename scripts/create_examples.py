@@ -195,8 +195,9 @@ def run_copier_on_template(template: Dict[str, Any]) -> None:
     # Create the parent directory if it doesn't exist
     template_destination.mkdir(parents=True, exist_ok=True)
     repo_root = template["repo_root"]
-    template_data = {**template.get("data", {}), "_repo_root": repo_root}
-
+    base_destination_path = template["base_destination_path"]
+    template_data = {**template.get("data", {}), "_repo_root": repo_root, "_base_destination_path": base_destination_path}
+    
     run_copy(
         src_path=str(source.absolute()),
         dst_path=str(template_destination.absolute()),
@@ -227,6 +228,7 @@ def create_example(example: Dict[str, Any], bootstrap: bool = False) -> None:
             )
         # Repo root is made available to the templates as a metadata field
         template["repo_root"] = str(Path(__file__).parent.parent)
+        template["base_destination_path"] = str(base_destination_path.absolute())
         source = Path(template["source"])
         source_parts = list(source.parts)
         generator_type = source_parts.pop(0)

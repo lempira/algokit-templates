@@ -38,29 +38,28 @@ is_localnet:
   type: bool
   help: Whether to deploy on localnet.
   default: "{{ target_network == 'localnet' }}"
-  when: 'false'
+  when: "false"
 
 is_testnet:
   type: bool
   help: Whether to deploy on testnet.
   default: "{{ target_network == 'testnet' }}"
-  when: 'false'
+  when: "false"
 
 is_mainnet:
   type: bool
   help: Whether to deploy on mainnet.
   default: "{{ target_network == 'mainnet' }}"
-  when: 'false'
+  when: "false"
 
 is_customnet:
   type: bool
   help: Whether to deploy on custom network.
   default: "{{ target_network == 'custom' }}"
-  when: 'false'
+  when: "false"
 
 # This controls which file gets copied based on the target network
 _subdirectory: "{{ 'template_content/' + target_network if target_network != 'custom' else 'template_content/custom' }}"
-
 
 # Additional configuration
 _message_after_copy: |
