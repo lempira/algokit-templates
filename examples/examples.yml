@@ -142,3 +142,5 @@ examples:
         data:
           framework_choice: python
       - source: "generators/create-devcontainer"
+        data:
+          template_type: scripts
