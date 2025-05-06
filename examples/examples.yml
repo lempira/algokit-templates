@@ -125,11 +125,11 @@ examples:
       - source: "generators/create-devcontainer"
       - source: "generators/create-env-file"
 
-  - id: python-utils-script
-    project_name: "Python Utils Script"
-    type: "script"
+  - id: python-utils-notebook
+    project_name: "Python Utils Notebook"
+    type: "notebook"
     author: "Algorand Foundation"
-    title: "Python Utils Script"
+    title: "Python Utils Notebook"
     description: "A notebook for developing and deploying Algokit Utils Python"
     tags:
       - python
@@ -138,9 +138,9 @@ examples:
     features:
       - "Algokit Utils"
     templates:
-      - source: "templates/base/scripts"
+      - source: "templates/base/notebook"
         data:
           framework_choice: python
       - source: "generators/create-devcontainer"
         data:
-          template_type: scripts
+          template_type: notebook

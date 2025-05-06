@@ -6,13 +6,13 @@ template_type:
   help: Type of .devcontainer.json to generate.
   choices:
     - default
-    - scripts
+    - notebook
   default: "default"
 
 _templates_suffix: ".j2"
 
 # This controls which template gets copied based on the selection
-_subdirectory: "{{ 'default_template' if template_type == 'default' else 'scripts_template' }}"
+_subdirectory: "{{ 'default_template' if template_type == 'default' else 'notebook_template' }}"
 
 # Additional configuration
 _message_after_copy: |

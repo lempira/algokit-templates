@@ -4,6 +4,6 @@ min_version = "v2.0.0"
 
 [project]
 type = 'script'
-name = 'python-utils-script'
+name = 'python-utils-notebook'
 
 
