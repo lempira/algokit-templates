@@ -23,3 +23,77 @@ generate-new-examples: ## Generate new examples by cleaning, creating, and boots
 
 validate-example-configuration:
 	python ./scripts/validate_configuration.py
+
+push-example: ## Push example to a GitHub branch. Required: 'id=<example-id>'. Optional: 'branch-prefix=<prefix>' (defaults to 'examples')
+	@if [ -z "$(id)" ]; then \
+		echo "Error: 'id' parameter is required. Use 'make push-example id=<example-id>'"; \
+		exit 1; \
+	fi
+	@if [ ! -d "examples/$(id)" ]; then \
+		echo "Error: example directory 'examples/$(id)' does not exist"; \
+		exit 1; \
+	fi
+	@branch_prefix=$${branch_prefix:-examples}; \
+	original_branch=$$(git rev-parse --abbrev-ref HEAD); \
+	if git show-ref --quiet refs/heads/$$branch_prefix/$(id) || git ls-remote --exit-code --heads origin $$branch_prefix/$(id) > /dev/null; then \
+		read -p "Branch $$branch_prefix/$(id) already exists locally or remotely. Delete it? [y/N] " confirm; \
+		if [ "$$confirm" = "y" ] || [ "$$confirm" = "Y" ]; then \
+			current_branch=$$(git rev-parse --abbrev-ref HEAD); \
+			if [ "$$current_branch" = "$$branch_prefix/$(id)" ]; then \
+				git checkout main; \
+			fi; \
+			git branch -D $$branch_prefix/$(id) 2>/dev/null && echo "Deleted local branch $$branch_prefix/$(id)" || echo "No local branch $$branch_prefix/$(id) to delete"; \
+			git push origin --delete $$branch_prefix/$(id) 2>/dev/null && echo "Deleted remote branch $$branch_prefix/$(id)" || echo "No remote branch $$branch_prefix/$(id) to delete"; \
+		else \
+			echo "Operation cancelled"; \
+			exit 1; \
+		fi; \
+	fi; \
+	git checkout -b $$branch_prefix/$(id); \
+	mkdir -p /tmp/example-$(id); \
+	cp -a examples/$(id)/. /tmp/example-$(id)/; \
+	git rm -rf .; \
+	cp -a /tmp/example-$(id)/. .; \
+	rm -rf /tmp/example-$(id); \
+	git add .; \
+	git commit -m "Example $(id) with contents at root"; \
+	git push -u origin $$branch_prefix/$(id); \
+	git checkout $$original_branch; \
+	echo "Pushed example to branch $$branch_prefix/$(id) and returned to branch $$original_branch"
+
+create-codespace: ## Create a branch with example files at top level and open a codespace. Required: 'id=<example-id>'
+	@if [ -z "$(id)" ]; then \
+		echo "Error: 'id' parameter is required. Use 'make create-codespace id=<example-id>'"; \
+		exit 1; \
+	fi
+	@if [ ! -d "examples/$(id)" ]; then \
+		echo "Error: example directory 'examples/$(id)' does not exist"; \
+		exit 1; \
+	fi
+	@original_branch=$$(git rev-parse --abbrev-ref HEAD); \
+	if git show-ref --quiet refs/heads/tmp/$(id) || git ls-remote --exit-code --heads origin tmp/$(id) > /dev/null; then \
+		read -p "Branch tmp/$(id) already exists locally or remotely. Delete it? [y/N] " confirm; \
+		if [ "$$confirm" = "y" ] || [ "$$confirm" = "Y" ]; then \
+			current_branch=$$(git rev-parse --abbrev-ref HEAD); \
+			if [ "$$current_branch" = "tmp/$(id)" ]; then \
+				git checkout main; \
+			fi; \
+			git branch -D tmp/$(id) 2>/dev/null && echo "Deleted local branch tmp/$(id)" || echo "No local branch tmp/$(id) to delete"; \
+			git push origin --delete tmp/$(id) 2>/dev/null && echo "Deleted remote branch tmp/$(id)" || echo "No remote branch tmp/$(id) to delete"; \
+		else \
+			echo "Operation cancelled"; \
+			exit 1; \
+		fi; \
+	fi; \
+	git checkout -b tmp/$(id); \
+	mkdir -p /tmp/example-$(id); \
+	cp -a examples/$(id)/. /tmp/example-$(id)/; \
+	git rm -rf .; \
+	cp -a /tmp/example-$(id)/. .; \
+	rm -rf /tmp/example-$(id); \
+	git add .; \
+	git commit -m "Temporary branch for $(id) example with contents at root"; \
+	git push -u origin tmp/$(id); \
+	gh codespace create -b tmp/$(id); \
+	git checkout $$original_branch; \
+	echo "Returned to branch $$original_branch"

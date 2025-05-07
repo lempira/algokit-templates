@@ -124,3 +124,23 @@ examples:
           framework_choice: typescript
       - source: "generators/create-devcontainer"
       - source: "generators/create-env-file"
+
+  - id: python-utils-notebook
+    project_name: "Python Utils Notebook"
+    type: "notebook"
+    author: "Algorand Foundation"
+    title: "Python Utils Notebook"
+    description: "A notebook for developing and deploying Algokit Utils Python"
+    tags:
+      - python
+      - utils
+      - notebook
+    features:
+      - "Algokit Utils"
+    templates:
+      - source: "templates/base/notebook"
+        data:
+          framework_choice: python
+      - source: "generators/create-devcontainer"
+        data:
+          template_type: notebook
