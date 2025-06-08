@@ -53,7 +53,7 @@ examples:
     type: "frontend"
     author: "Algorand Foundation"
     title: "React Vite Basic"
-    description: "A baseline React web app for developing integrating with any ARC56 compliant Algorand smart contracts."
+    description: "A baseline React web app for integrating with any ARC56 compliant Algorand smart contracts."
     tags:
       - react
       - vite
