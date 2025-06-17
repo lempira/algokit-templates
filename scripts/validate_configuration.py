@@ -1,7 +1,7 @@
 import fire
 from enum import Enum
 from typing import List, Dict, Optional
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, ConfigDict
 import yaml
 from pathlib import Path
 
@@ -9,8 +9,10 @@ class ExampleType(str, Enum):
     FRONTEND = "frontend"
     SMART_CONTRACT = "smart-contract"
     FULLSTACK = "fullstack"
+    NOTEBOOK = "notebook"
 
 class TemplateData(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     source: str = Field(
         description="Path to the source template file"
     )
@@ -25,6 +27,7 @@ class TemplateData(BaseModel):
 
 
 class Example(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     id: str = Field(
         description="Unique identifier for the example. This will be use for the example's directory name."
     )
@@ -71,6 +74,7 @@ class Example(BaseModel):
         return v
 
 class Examples(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     examples: List[Example] = Field(
         description="List of all example projects"
     )

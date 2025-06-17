@@ -21,7 +21,7 @@ generate-new-examples: ## Generate new examples by cleaning, creating, and boots
 	make create-examples $(if $(id),id=$(id),)
 	make bootstrap-examples $(if $(id),id=$(id),)
 
-validate-example-configuration:
+validate-example-configuration: ## Validate the examples.yml configuration file
 	python ./scripts/validate_configuration.py
 
 push-example: ## Push example to a GitHub branch. Required: 'id=<example-id>'. Optional: 'branch-prefix=<prefix>' (defaults to 'examples')
