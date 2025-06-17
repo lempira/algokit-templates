@@ -5,7 +5,6 @@ examples:
     author: "Algorand Foundation"
     title: "Python Hello World"
     description: "This template provides a beta template for developing and deploying Algorand Python smart contracts."
-    readmeLocation: contracts
     tags:
       - python
       - smart-contract
