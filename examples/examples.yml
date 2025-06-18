@@ -163,3 +163,24 @@ examples:
       - source: "generators/create-devcontainer"
         data:
           template_type: notebook
+
+  - id: digital-marketplace-smart-contract
+    project_name: "Digital Marketplace"
+    type: "smart-contract"
+    author: "Algorand Foundation"
+    title: "Digital Marketplace"
+    description: "A smart contract for a digital marketplace application for creating and trading digital assets on Algorand."
+    tags:
+      - python
+      - smart-contract
+    features:
+      - "Algorand Python"
+      - "ABI Method Integration"
+    templates:
+      - source: "templates/base/workspace-setup"
+      - source: "templates/base/contracts/python"
+      - source: "templates/examples/contracts/digital_marketplace"
+        data:
+          language: python
+      - source: "generators/create-devcontainer"
+      - source: "generators/create-env-file"

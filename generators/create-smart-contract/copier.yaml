@@ -15,5 +15,10 @@ contract_name:
   placeholder: "{{ language }}-contract"
   default: "{{ language }}-contract"
 
+include_tests:
+  type: bool
+  help: Include test files for your contract?
+  default: false
+
 _subdirectory: "{{ language }}_template_content"
 _templates_suffix: ".j2"
