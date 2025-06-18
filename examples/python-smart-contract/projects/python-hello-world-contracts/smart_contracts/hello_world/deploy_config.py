@@ -7,13 +7,8 @@ logger = logging.getLogger(__name__)
 
 # define deployment behaviour based on supplied app spec
 def deploy() -> None:
-<<<<<<< HEAD:templates/base/contracts/python/template_content/.algokit/generators/create_contract/smart_contracts/{% raw %}{{ c_n }}{% endraw %}/{% if deployment_language == 'python' %}deploy_config.py.j2{% endif %}
-    from smart_contracts.artifacts.{{ c_n }}.{{ c_n }}_client import (
-        {{ c_n.split('_')|map('capitalize')|join }}Factory,
-=======
     from smart_contracts.artifacts.hello_world.hello_world_client import (
         HelloWorldFactory,
->>>>>>> 7496d53 (refactor: removed smart contract from base template and replaced with smart contract generator):examples/python-fullstack/projects/python-hello-world-contracts/smart_contracts/hello_world/deploy_config.py
         HelloArgs,
     )
 
@@ -21,7 +16,7 @@ def deploy() -> None:
     deployer_ = algorand.account.from_environment("DEPLOYER")
 
     factory = algorand.client.get_typed_app_factory(
-        {{ c_n.split('_')|map('capitalize')|join }}Factory, default_sender=deployer_.address
+        HelloWorldFactory, default_sender=deployer_.address
     )
 
     app_client, result = factory.deploy(

@@ -17,6 +17,14 @@ examples:
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/contracts/python"
+      - source: "generators/create-smart-contract"
+        data:
+          language: python
+          contract_name: "hello_world"
+      - source: "generators/create-smart-contract"
+        data:
+          language: python
+          contract_name: "hello_world"
       - source: "templates/examples/contracts/hello-world"
         data:
           framework_choice: python
@@ -41,6 +49,10 @@ examples:
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/contracts/typescript"
+      - source: "generators/create-smart-contract"
+        data:
+          language: typescript
+          contract_name: "hello_world"
       - source: "templates/examples/contracts/hello-world"
         data:
           framework_choice: typescript
@@ -92,6 +104,10 @@ examples:
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/contracts/python"
+      - source: "generators/create-smart-contract"
+        data:
+          language: python
+          contract_name: "hello_world"
       - source: "templates/base/frontend/react-vite"
       - source: "templates/examples/fullstack/basic"
         data:
@@ -117,6 +133,10 @@ examples:
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/contracts/typescript"
+      - source: "generators/create-smart-contract"
+        data:
+          language: typescript
+          contract_name: "hello_world"
       - source: "templates/base/frontend/react-vite"
       - source: "templates/examples/fullstack/basic"
         data:

@@ -1,3 +1,4 @@
+# pyright: reportMissingModuleSource=false
 from algopy import ARC4Contract, String
 from algopy.arc4 import abimethod
 
