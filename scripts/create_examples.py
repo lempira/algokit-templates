@@ -258,6 +258,12 @@ def create_example(example: Dict[str, Any], bootstrap: bool = False) -> None:
             generator_type = source_parts.pop(0)
             if generator_type == "create-devcontainer":
                 templates = [template]
+
+            elif generator_type == "create-smart-contract":
+                templates = update_generator_env_file_template_data(
+                    template, base_destination_path
+                )
+
             elif generator_type == "create-env-file":
                 templates = update_generator_env_file_template_data(
                     template, base_destination_path
