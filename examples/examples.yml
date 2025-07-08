@@ -183,6 +183,8 @@ examples:
     features:
       - "Algorand Python"
       - "ABI Method Integration"
+    detailsPages:
+      smartContract: examples/digital-marketplace-smart-contract/projects/digital-marketplace-contracts/smart_contracts/digital_marketplace/contract.py
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/contracts/python"
