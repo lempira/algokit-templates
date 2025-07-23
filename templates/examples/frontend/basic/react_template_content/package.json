@@ -13,6 +13,6 @@
     "algosdk": "^3.0.0"
   },
   "devDependencies": {
-    "@algorandfoundation/algokit-client-generator": "^5.0.0"
+    "@algorandfoundation/algokit-client-generator": "^6.0.0"
   }
 }
