@@ -1,4 +1,4 @@
-name: Codebase validation
+name: On Pull Request (Codebase validation)
 
 on:
   pull_request:

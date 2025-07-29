@@ -42,7 +42,8 @@ jobs:
           # Manual dispatch = stable, workflow_call = use input parameter  
           STABLE_RELEASE=${{ github.event_name == 'workflow_dispatch' && 'true' || inputs.stable }}
           echo "STABLE_RELEASE=$STABLE_RELEASE" >> $GITHUB_ENV
-
+        
+      # Used for logging. Don't remove.
       - name: Release Info
         run: |
           if [ "${{ env.STABLE_RELEASE }}" = "true" ]; then
@@ -61,20 +62,3 @@ jobs:
           # Now that branch config is removed from pyproject.toml, these parameters work
           prerelease: ${{ env.STABLE_RELEASE != 'true' }}
           prerelease_token: ${{ env.STABLE_RELEASE == 'true' && '' || 'beta' }}
-
-      - name: Release Complete
-        run: |
-          if [ "${{ env.STABLE_RELEASE }}" = "true" ]; then
-            echo "✅ Stable release created!"
-            echo "🏷️  Released without prerelease suffix"
-            echo "📝 Updated pyproject.toml with stable version"
-            echo "🚀 Created GitHub release with changelog"
-          else
-            echo "✅ Beta release created!"
-            echo "🧪 New beta version for testing and development"
-            echo "📝 Updated pyproject.toml with beta version"
-            echo "🚀 Created GitHub prerelease with changelog"
-          fi
-          echo ""
-          echo "📋 Recent releases:"
-          git tag -l | head -10 
