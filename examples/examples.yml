@@ -3,7 +3,7 @@ examples:
     project_name: "Python Hello World"
     type: "smart-contract"
     author: "Algorand Foundation"
-    title: "Python Hello World"
+    title: "Python Hello World v2"
     description: "This template provides a beta template for developing and deploying Algorand Python smart contracts."
     tags:
       - python
