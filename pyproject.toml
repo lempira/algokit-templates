@@ -1,7 +1,7 @@
 [project]
 name = "algokit-templates"
 version = "0.1.0"
-description = "Add your description here"
+description = "Templates and examples for Algorand projects"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
