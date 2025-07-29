@@ -51,4 +51,15 @@ Documentation is just as important as code.
   * For changes to the overall project, update the main `README.md`.
   * If you are adding or modifying a template, consider adding or updating a `README.md` within that template directory.
 
+## Releases
+
+This repository uses automated releases with semantic versioning:
+
+* **Beta Releases**: Automatically created when changes are merged to the `main` branch. These include a `-beta` suffix for testing and development.
+* **Stable Releases**: Manually triggered by maintainers by running the "Release" workflow from the GitHub Actions tab, which creates production-ready releases without the beta suffix.
+
+The release process uses [Python Semantic Release](https://python-semantic-release.readthedocs.io/) with [Conventional Commits](https://www.conventionalcommits.org/), so following the commit message format mentioned above ensures proper version bumping and changelog generation.
+
+As a contributor, you don't need to worry about releases - they are handled automatically by the CI/CD pipeline.
+
 Thank you for contributing!

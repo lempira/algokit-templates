@@ -39,8 +39,6 @@ jobs:
   # Call release workflow for beta releases
   create-beta-release:
     uses: ./.github/workflows/release.yml
-    with:
-      stable: 'false'
     secrets: inherit
 
   publish-demo-sites:

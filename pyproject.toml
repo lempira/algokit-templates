@@ -1,7 +1,7 @@
 [project]
 name = "algokit-templates"
 version = "0.1.0"
-description = "Add your description here"
+description = "Templates and examples for Algorand projects"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -29,6 +29,9 @@ version_toml = [
 ]
 # Add [skip ci] to prevent bot commits from re-triggering workflows
 commit_message = "chore: release {version} [skip ci]"
+# Prevent major version bumps by staying on version 0.x.x
+# Remove this when version 1.0.0 is released
+allow_zero_version = true
 
 # Branch configuration removed - controlled by GitHub Action parameters
 
@@ -48,6 +51,9 @@ changelog_file = "CHANGELOG.md"
 allowed_tags = ["build", "chore", "ci", "docs", "feat", "fix", "perf", "style", "refactor", "test"]
 minor_tags = ["feat"]
 patch_tags = ["fix", "perf"]
+# Disable major version bumps by setting major_tags to empty list
+# Remove this when version 1.0.0 is released
+major_tags = []
 
 [tool.semantic_release.publish]
 upload_to_vcs_release = true
