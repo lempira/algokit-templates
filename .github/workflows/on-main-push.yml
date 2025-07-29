@@ -24,19 +24,37 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Generate bot token
+        uses: actions/create-github-app-token@v1
+        id: app_token
+        with:
+          app-id: ${{ secrets.BOT_ID }}
+          private-key: ${{ secrets.BOT_SK }}
+
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app_token.outputs.token }}
 
       - name: Create Example Branches
         uses: ./.github/actions/create-example-branches
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ steps.app_token.outputs.token }}
 
   publish-demo-sites:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate bot token
+        uses: actions/create-github-app-token@v1
+        id: app_token
+        with:
+          app-id: ${{ secrets.BOT_ID }}
+          private-key: ${{ secrets.BOT_SK }}
+
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app_token.outputs.token }}
 
       - name: Build Demo Sites
         uses: ./.github/actions/build-demo-sites
@@ -44,4 +62,4 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          token: ${{ github.token }}
+          token: ${{ steps.app_token.outputs.token }}
