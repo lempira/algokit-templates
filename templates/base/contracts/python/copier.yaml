@@ -61,11 +61,7 @@ ide_jetbrains:
   when: "{{ preset_name == 'custom' }}"
   default: "{{ 'yes' if preset_name == 'production' else 'no' }}"
 
-use_python_pytest:
-  type: bool
-  when: "{{ preset_name == 'custom' }}"
-  help: Do you want to include unit tests (via pytest)?
-  default: "{{ 'yes' if preset_name == 'production' else 'no' }}"
+
 
 python_linter:
   type: str

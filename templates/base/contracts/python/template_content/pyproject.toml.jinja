@@ -26,10 +26,7 @@ flake8 = "*"
 {% if use_python_mypy -%}
 mypy = "^1"
 {% endif -%}
-{% if use_python_pytest -%}
-pytest = "*"
-pytest-cov = "*"
-{% endif -%}
+
 {% if use_python_pip_audit -%}
 pip-audit = "*"
 {% endif -%}
@@ -52,10 +49,7 @@ lint.unfixable = ["B", "RUF"]
 allow-star-arg-any = true
 suppress-none-returning = true
 {% endif -%}
-{% if use_python_pytest %}
-[tool.pytest.ini_options]
-pythonpath = ["smart_contracts", "tests"]
-{% endif -%}
+
 {% if use_python_mypy %}
 [tool.mypy]
 files = "smart_contracts/"

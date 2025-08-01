@@ -38,11 +38,7 @@ environment_secrets = [
 build = { commands = [
   'poetry run python -m smart_contracts build',
 ], description = 'Build all smart contracts in the project' }
-{%- if use_python_pytest %}
-test = { commands = [
-  'poetry run pytest',
-], description = 'Run smart contract tests' }
-{%- endif %}
+
 {%- if use_python_pip_audit %}
 audit = { commands = [
   'poetry run pip-audit',
