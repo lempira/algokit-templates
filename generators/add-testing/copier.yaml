@@ -1,0 +1,40 @@
+_min_copier_version: "9.1.0"
+_subdirectory: "{{ template_type }}"
+
+# Auto-detected project template type (no user questions needed)
+template_type:
+  type: str
+  help: Detected project template type
+  default: "{{ template_type | default('unknown') }}"
+  when: false
+
+contract_name:
+  type: str
+  help: Detected contract name
+  default: "{{ contract_name | default('hello_world') }}"
+  when: false
+
+# Validation
+_validate_project:
+  type: str
+  help: Project validation
+  default: "{% if template_type == 'unknown' %}ERROR: Could not detect project type. Make sure you're running this in an AlgoKit project directory.{% else %}valid{% endif %}"
+  validator: "{% if 'ERROR' in _validate_project %}{{ _validate_project }}{% endif %}"
+
+# Post-generation message
+_message_after:
+  type: str
+  when: false
+  default: |
+    ✅ Testing has been successfully added to your project!
+    
+    {% if template_type == 'python_contract' %}
+    To run tests: algokit project run test
+    To run with coverage: poetry run pytest --cov
+    {% elif template_type == 'typescript_contract' %}
+    To run tests: npm test
+    To run in watch mode: npm run test:watch
+    {% elif template_type == 'typescript_frontend' %}
+    To run tests: npm test
+    To run in watch mode: npm run test:watch
+    {% endif %} 

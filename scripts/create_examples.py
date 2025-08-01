@@ -7,6 +7,8 @@ import json
 from typing import Dict, Optional, Any
 from update_workspace import update_workspace
 from bootstrap_examples import bootstrap_example
+from scripts.detect_project import detect_project
+
 
 BACKEND_TEMPLATES_NAME = "contracts"
 FRONTEND_TEMPLATES_NAME = "frontend"
@@ -326,6 +328,19 @@ def create_example(example: Dict[str, Any], bootstrap: bool = False) -> None:
                 templates = update_generator_env_file_template_data(
                     template, base_destination_path
                 )
+
+            elif generator_type == "add-testing":
+                # Import and run detection logic
+
+                detected_data = detect_project()
+
+                # Pass detected values directly to template
+                template["data"] = {
+                    **template.get("data", {}),
+                    "template_type": detected_data["template_type"],
+                    "contract_name": detected_data["contract_name"],
+                }
+                templates = [template]
 
             else:
                 raise ValueError(f"Invalid generator type: {generator_type}")
