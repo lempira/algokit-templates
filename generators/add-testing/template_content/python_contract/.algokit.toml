@@ -1,0 +1,4 @@
+[project.run]
+test = { commands = [
+  'poetry run pytest',
+], description = 'Run smart contract tests' } 

@@ -94,3 +94,6 @@ examples/**/venv/
 examples/**/.venv/
 examples/**/.copier-answers.yml
 examples/**/.algokit/.copier-answers.yml
+
+# temp
+research/

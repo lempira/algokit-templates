@@ -21,6 +21,26 @@ _validate_project:
   default: "{% if template_type == 'unknown' %}ERROR: Could not detect project type. Make sure you're running this in an AlgoKit project directory.{% else %}valid{% endif %}"
   validator: "{% if 'ERROR' in _validate_project %}{{ _validate_project }}{% endif %}"
 
+# Post-generation tasks to merge configurations
+_tasks:
+  - name: Merge Python dependencies
+    command: |
+      if [ "{{ template_type }}" = "python_contract" ]; then
+        python {{ _repo_root }}/scripts/merge_pyproject.py --source "{{ _copier_conf.src_path }}" --destination "{{ _copier_conf.dst_path }}"
+      fi
+    when: "{{ template_type == 'python_contract' }}"
+  
+  - name: Merge TypeScript dependencies
+    command: |
+      if [ "{{ template_type }}" = "typescript_contract" ] || [ "{{ template_type }}" = "typescript_frontend" ]; then
+        python {{ _repo_root }}/scripts/merge_package_json.py --source "{{ _copier_conf.src_path }}" --destination "{{ _copier_conf.dst_path }}"
+      fi
+    when: "{{ template_type in ['typescript_contract', 'typescript_frontend'] }}"
+  
+  - name: Merge AlgoKit configuration
+    command: |
+      python {{ _repo_root }}/scripts/merge_algokit_toml.py --source "{{ _copier_conf.src_path }}" --destination "{{ _copier_conf.dst_path }}"
+
 # Post-generation message
 _message_after:
   type: str

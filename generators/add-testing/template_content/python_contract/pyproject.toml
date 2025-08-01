@@ -1,0 +1,8 @@
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+pytest-cov = "*"
+
+[tool.pytest.ini_options]
+pythonpath = ["smart_contracts", "tests"]
+testpaths = ["tests"]
+addopts = "--cov=smart_contracts --cov-report=html --cov-report=term" 
