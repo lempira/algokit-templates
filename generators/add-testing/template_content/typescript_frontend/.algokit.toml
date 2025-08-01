@@ -1,0 +1,8 @@
+[project.run]
+test = { commands = [
+  'npm test',
+], description = 'Run frontend tests' }
+
+test-watch = { commands = [
+  'npm run test:watch',
+], description = 'Run frontend tests in watch mode' } 
