@@ -64,17 +64,9 @@ use_daisy_ui:
   when: "{{ use_tailwind != false and preset_name == 'custom' }}"
   default: "{{ 'yes' if preset_name == 'production' else 'no' }}"
 
-use_jest:
-  type: bool
-  help: Do you want to include unit tests (via Jest)?
-  when: "{{ preset_name == 'custom' }}"
-  default: "{{ 'yes' if preset_name == 'production' else 'no' }}"
 
-use_playwright:
-  type: bool
-  help: Do you want to include end to end tests (via Playwright)?
-  when: "{{ preset_name == 'custom' }}"
-  default: "{{ 'yes' if preset_name == 'production' else 'no' }}"
+
+
 
 use_github_actions:
   type: bool

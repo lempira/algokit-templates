@@ -1,11 +1,16 @@
 /**
- * Example tests for your React components.
+ * Example tests for your React frontend.
  *
- * This file shows common patterns for testing React components with Vitest and Testing Library.
- * Uncomment and modify the examples below to match your component's behavior.
+ * This file shows common testing patterns for React applications.
+ * Includes both unit testing (components) and E2E testing patterns.
+ * Uncomment and modify the examples below to match your application's behavior.
  */
 
-// TODO: Uncomment imports when you're ready to write tests
+// =============================================================================
+// UNIT TESTING with Vitest + Testing Library
+// =============================================================================
+
+// TODO: Uncomment imports when you're ready to write unit tests
 // import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 // import userEvent from '@testing-library/user-event'
 // import { describe, it, expect, vi } from 'vitest'
@@ -93,5 +98,88 @@
 //     //
 //     // render(<YourComponent />)
 //     // expect(screen.getByText('mocked data')).toBeInTheDocument()
+//   })
+// })
+
+// =============================================================================
+// INTEGRATION/E2E TESTING PATTERNS (using Vitest with real browser testing)
+// =============================================================================
+
+// TODO: For integration/E2E testing, you can use jsdom for simpler cases or tools like Playwright
+// TODO: These examples show common E2E patterns adapted for Vitest
+
+// TODO: Uncomment additional imports for integration testing
+// import { algorandFixture } from '@algorandfoundation/algokit-utils/testing'
+
+// TODO: Example integration test suite
+// describe('App Integration Tests', () => {
+//   // TODO: Setup localnet fixture for integration tests
+//   // const localnet = algorandFixture()
+//
+//   // TODO: Setup before each integration test
+//   // beforeEach(async () => {
+//   //   await localnet.newScope()
+//   // })
+//
+//   // TODO: Test app initialization
+//   test('app initializes correctly', () => {
+//     // render(<App />)
+//     // expect(screen.getByText('AlgoKit React Template')).toBeInTheDocument()
+//   })
+//
+//   // TODO: Test wallet connection flow
+//   test('wallet connection works', async () => {
+//     // render(<App />)
+//     // 
+//     // const connectButton = screen.getByTestId('connect-wallet')
+//     // await userEvent.click(connectButton)
+//     // 
+//     // const kmdConnect = screen.getByTestId('kmd-connect')
+//     // await userEvent.click(kmdConnect)
+//     // 
+//     // expect(screen.getByText('Connected')).toBeInTheDocument()
+//   })
+//
+//   // TODO: Test transaction flow
+//   test('payment transaction flow', async () => {
+//     // render(<App />)
+//     // 
+//     // // 1. Connect wallet first
+//     // const connectButton = screen.getByTestId('connect-wallet')
+//     // await userEvent.click(connectButton)
+//     // await userEvent.click(screen.getByTestId('kmd-connect'))
+//     // 
+//     // // 2. Navigate to transactions
+//     // const transactionsDemo = screen.getByTestId('transactions-demo')
+//     // await userEvent.click(transactionsDemo)
+//     // 
+//     // // 3. Fill in transaction details
+//     // const receiverInput = screen.getByTestId('receiver-address')
+//     // await userEvent.type(receiverInput, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+//     // 
+//     // // 4. Send transaction
+//     // const sendButton = screen.getByTestId('send-algo')
+//     // await userEvent.click(sendButton)
+//     // 
+//     // // 5. Check for success notification
+//     // await waitFor(() => {
+//     //   expect(screen.getByText(/Transaction sent:/)).toBeInTheDocument()
+//     // })
+//   })
+//
+//   // TODO: Test error handling
+//   test('handles connection errors', async () => {
+//     // render(<App />)
+//     // 
+//     // // Mock a connection error
+//     // vi.spyOn(console, 'error').mockImplementation(() => {})
+//     // 
+//     // const connectButton = screen.getByTestId('connect-wallet')
+//     // await userEvent.click(connectButton)
+//     // 
+//     // // Test error state
+//     // await waitFor(() => {
+//     //   expect(screen.getByText(/Connection failed/)).toBeInTheDocument()
+//     // })
 //   })
 // }) 

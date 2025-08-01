@@ -23,8 +23,8 @@ This template supports the following features:
 
 - React web app with [Tailwind CSS](https://tailwindcss.com/) and [TypeScript](https://www.typescriptlang.org/)
 - Styled framework agnostic CSS components using [DaisyUI](https://daisyui.com/).
-- Starter jest unit tests for typescript functions. Can be disabled if not needed.
-- Starter [playwright](https://playwright.dev/) tests for end to end testing. Can be disabled if not needed.
+
+
 - Integration with [use-wallet](https://github.com/txnlab/use-wallet) for connecting to Algorand wallets such as Pera, Defly and Exodus.
 - Example of performing a transaction.
 - Dotenv support for environment variables, as well as a local only KMD provider that can be used for connecting the frontend component to an `algokit localnet` instance (docker required).
