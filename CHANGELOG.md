@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.1.1-beta.3 (2025-08-01)
+
+### Bug Fixes
+
+- Patch jinja templates syntax in inline bash
+  ([#18](https://github.com/algorandfoundation/algokit-templates/pull/18),
+  [`746603b`](https://github.com/algorandfoundation/algokit-templates/commit/746603b44626f69245083cb61392ce2ab24d2b5c))
+
+
 ## v0.1.1-beta.2 (2025-07-31)
 
 ### Bug Fixes
