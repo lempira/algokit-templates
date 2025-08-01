@@ -1,0 +1,8 @@
+[project.run]
+test = { commands = [
+  'npm test',
+], description = 'Run smart contract tests' }
+
+test-watch = { commands = [
+  'npm run test:watch',
+], description = 'Run smart contract tests in watch mode' } 
