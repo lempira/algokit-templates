@@ -51,13 +51,11 @@ jobs:
         run: algokit project run lint {% if use_workspace %}--project-name '{{ project_name }}'{% endif %}
 {% endif %}
 
-{% if use_vitest %}
       - name: Run tests
         shell: bash
         run: |
           set -o pipefail
           algokit project run test {% if use_workspace %}--project-name '{{ project_name }}'{% endif %}
-{% endif %}
 
       - name: Build smart contracts
         run: algokit project run build {% if use_workspace %}--project-name '{{ project_name }}'{% endif %}

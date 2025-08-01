@@ -38,11 +38,7 @@ environment_secrets = [
 build = { commands = [
   'npm run build',
 ], description = 'Build all smart contracts in the project' }
-{%- if use_vitest %}
-test = { commands = [
-  'npm run test',
-], description = 'Run smart contract tests using vitest' }
-{%- endif %}
+
 {%- if use_audit %}
 audit = { commands = [
   'npm run audit',

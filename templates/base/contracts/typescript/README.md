@@ -33,7 +33,7 @@ This template supports the following features:
 - [ts-node-dev](https://github.com/wclr/ts-node-dev) for TypeScript deployment script execution
 - [Prettier](https://prettier.io/) for code formatting
 - [ESLint](https://eslint.org/) for linting
-- [vitest](https://vitest.dev/) for automated testing (unit test and end-to-end)
+
 - [better-npm-audit](https://github.com/jeemok/better-npm-audit#readme) for dependency vulnerability scanning
 - [pre-commit](https://pre-commit.com/) for managing and maintaining multi-language pre-commit hooks
 - VS Code configuration (linting, formatting, breakpoint debugging)
