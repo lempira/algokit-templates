@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v0.1.1-beta.4 (2025-08-14)
+
+### Bug Fixes
+
+- Added base path back into vite frontend base template
+  ([#20](https://github.com/algorandfoundation/algokit-templates/pull/20),
+  [`0c2717b`](https://github.com/algorandfoundation/algokit-templates/commit/0c2717b72beed8195d7f10494376703544881160))
+
+- Updated copy readme to inline bash for x-platform compatibility
+  ([#20](https://github.com/algorandfoundation/algokit-templates/pull/20),
+  [`0c2717b`](https://github.com/algorandfoundation/algokit-templates/commit/0c2717b72beed8195d7f10494376703544881160))
+
+
 ## v0.1.1-beta.3 (2025-08-01)
 
 ### Bug Fixes
