@@ -62,6 +62,7 @@ runs:
 
           # Add BASE_PATH environment variable for the build
           export BASE_PATH="/${REPO_NAME}/${ID}"
+          export NEXT_PUBLIC_BASE_PATH=$BASE_PATH
           npm install
           npm run build
 

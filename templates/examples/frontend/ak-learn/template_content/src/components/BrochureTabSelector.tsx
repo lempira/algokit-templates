@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 interface BrochureTabSelectorProps {
   activeTab: string;
@@ -10,23 +9,23 @@ export default function BrochureTabSelector({
   setterFunction,
   activeTab,
 }: BrochureTabSelectorProps) {
-  const router = useRouter();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   
   const brochureTabs = [
     {
       name: "Easily connecting Wallets",
       value: "connect-wallet",
-      icon: `${router.basePath}/wallet-icon.png`,
+      icon: `${basePath}/wallet-icon.png`,
     },
     {
       name: "Creating Assets",
       value: "transactions",
-      icon: `${router.basePath}/coin-icon.png`,
+      icon: `${basePath}/coin-icon.png`,
     },
     {
       name: "Querying the blockchain",
       value: "querying-chain",
-      icon: `${router.basePath}/cloud-icon.png`,
+      icon: `${basePath}/cloud-icon.png`,
     },
   ];
 
