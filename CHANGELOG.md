@@ -2,6 +2,43 @@
 
 <!-- version list -->
 
+## v0.2.0-beta.1 (2025-08-27)
+
+### Bug Fixes
+
+- Dist folder
+  ([`4ebf43d`](https://github.com/lempira/algokit-templates/commit/4ebf43d17b6f98628c69737f7a657a95786a1159))
+
+- Updated readme for test
+  ([`56a5e36`](https://github.com/lempira/algokit-templates/commit/56a5e366c93cb31cdd1c0471f324e6edc5605951))
+
+### Chores
+
+- Addressed PR comments ([#19](https://github.com/lempira/algokit-templates/pull/19),
+  [`3554466`](https://github.com/lempira/algokit-templates/commit/3554466311286979990f63c4dc75c760d138a02e))
+
+- Update readme for testing
+  ([`696b970`](https://github.com/lempira/algokit-templates/commit/696b97094678277939cd69afeb11672338a64b2a))
+
+### Documentation
+
+- Added ADR-001 - project generator arch
+  ([#19](https://github.com/lempira/algokit-templates/pull/19),
+  [`3554466`](https://github.com/lempira/algokit-templates/commit/3554466311286979990f63c4dc75c760d138a02e))
+
+- Restructure project generator architecture ADR; add more options
+  ([#19](https://github.com/lempira/algokit-templates/pull/19),
+  [`3554466`](https://github.com/lempira/algokit-templates/commit/3554466311286979990f63c4dc75c760d138a02e))
+
+### Features
+
+- Added nextjs base frontend template
+  ([`4c75be1`](https://github.com/lempira/algokit-templates/commit/4c75be14795a33e811d7344b1489975cae50e847))
+
+- Added the ak-learn example
+  ([`4ab2c81`](https://github.com/lempira/algokit-templates/commit/4ab2c81e89e99003e6f651bc1d104ef4ba905c62))
+
+
 ## v0.1.1-beta.4 (2025-08-14)
 
 ### Bug Fixes
