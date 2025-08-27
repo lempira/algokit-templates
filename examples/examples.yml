@@ -203,7 +203,6 @@ examples:
     tags:
       - nextjs
       - react
-      - frontend
       - typescript
     features:
       - "Use Wallet Integration"
@@ -212,3 +211,4 @@ examples:
     templates:
       - source: "templates/base/workspace-setup"
       - source: "templates/base/frontend/nextjs"
+      - source: "templates/examples/frontend/ak-learn"
