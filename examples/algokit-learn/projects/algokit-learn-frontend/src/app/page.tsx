@@ -8,9 +8,11 @@ import BrochureTabSelector from "@/components/BrochureTabSelector";
 import { FaBookAtlas } from "react-icons/fa6";
 import Image from "next/image";
 import WalletConnectionButton from "@/components/WalletConnectionButton";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("connect-wallet");
+  const router = useRouter();
 
   return (
     // <WalletProvider manager={walletManager}>
@@ -21,7 +23,7 @@ export default function Home() {
           <div className="flex gap-2 items-center">
             <div className="w-10 h-10 overflow-hidden rounded-md">
               <Image
-                src="/ak_logo.png"
+                src={`${router.basePath}/ak_logo.png`}
                 alt="Algokit Logo"
                 width={120}
                 height={120}
