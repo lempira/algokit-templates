@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.2.0-beta.4 (2025-08-27)
+
+### Bug Fixes
+
+- Broken public env var
+  ([`0d4844a`](https://github.com/lempira/algokit-templates/commit/0d4844a5966c465c5cfcd7dd21061eb9d400da60))
+
+
 ## v0.2.0-beta.3 (2025-08-27)
 
 ### Bug Fixes
