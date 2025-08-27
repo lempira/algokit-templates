@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.2.0-beta.2 (2025-08-27)
+
+### Bug Fixes
+
+- Add base-path to the nextjs example
+  ([`345d981`](https://github.com/lempira/algokit-templates/commit/345d981347f80498509079102cba42df081a10cc))
+
+
 ## v0.2.0-beta.1 (2025-08-27)
 
 ### Bug Fixes
