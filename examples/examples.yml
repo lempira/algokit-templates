@@ -193,3 +193,22 @@ examples:
           language: python
       - source: "generators/create-devcontainer"
       - source: "generators/create-env-file"
+
+  - id: algokit-learn
+    project_name: "Algokit Learn"
+    type: "frontend"
+    author: "Algorand Foundation"
+    title: "Algokit Learn"
+    description: "A learning project for Algokit"
+    tags:
+      - nextjs
+      - react
+      - typescript
+    features:
+      - "Use Wallet Integration"
+      - "Testnet Deployment"
+      - "Transactions Sending"
+    templates:
+      - source: "templates/base/workspace-setup"
+      - source: "templates/base/frontend/nextjs"
+      - source: "templates/examples/frontend/ak-learn"
