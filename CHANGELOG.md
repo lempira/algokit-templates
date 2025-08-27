@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.2.0-beta.3 (2025-08-27)
+
+### Bug Fixes
+
+- Added basePath to assets
+  ([`30a2a93`](https://github.com/lempira/algokit-templates/commit/30a2a93294518789c08f2d0ab6d1d1fbdbf10495))
+
+
 ## v0.2.0-beta.2 (2025-08-27)
 
 ### Bug Fixes
